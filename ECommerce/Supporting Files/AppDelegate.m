@@ -7,19 +7,37 @@
 //
 
 #import "AppDelegate.h"
+#import "AppUserManager.h"
 
 @interface AppDelegate ()
 
+- (void)findEntryPoint;
 @end
 
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	// Override point for customization after application launch.
+	IQKeyboardManager.sharedManager.enable = YES;
+	IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = YES;
+	
+	[self findEntryPoint];
+	
 	return YES;
 }
 
+- (void)findEntryPoint {
+	UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+	AppUserManager *manager = AppUserManager.sharedManager;
+	[manager restore];
+	
+	// check if we have stored ApiKey
+	if ([manager getApiKey] != nil) {
+		self.window.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"homeTabBarVC"];
+	} else {
+		self.window.rootViewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"mainNav"];
+	}
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
 	// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

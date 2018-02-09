@@ -7,30 +7,75 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1DC65C202B78D900F3DE9A /* SignupVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC65B202B78D900F3DE9A /* SignupVC.m */; };
+		4D1DC660202B985900F3DE9A /* NSString+NSString_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC65F202B985900F3DE9A /* NSString+NSString_Extension.m */; };
+		4D1DC664202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC663202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m */; };
+		4D1DC667202BB17300F3DE9A /* APIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC666202BB17300F3DE9A /* APIClient.m */; };
+		4D1DC66B202BB24D00F3DE9A /* AppUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC66A202BB24D00F3DE9A /* AppUserManager.m */; };
+		4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC671202BDF7000F3DE9A /* EndpointHelper.m */; };
+		4D1DC675202C156A00F3DE9A /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC674202C156A00F3DE9A /* AccountVC.m */; };
+		4D3E5DAA202CD77F00633292 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DA9202CD77F00633292 /* Category.m */; };
+		4D3E5DAD202CEF5400633292 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DAC202CEF5400633292 /* Product.m */; };
+		4D3E5DB0202CF22300633292 /* SubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DAF202CF22300633292 /* SubCategory.m */; };
+		4D3E5DB3202D333900633292 /* SubCategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DB2202D333900633292 /* SubCategoryVC.m */; };
+		4D3E5DB6202D334700633292 /* ProductListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DB5202D334700633292 /* ProductListVC.m */; };
+		4D3E5DB9202D335900633292 /* ProductDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DB8202D335900633292 /* ProductDetailVC.m */; };
 		4D4DC906202AAD3E0005DBA7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC905202AAD3E0005DBA7 /* AppDelegate.m */; };
-		4D4DC909202AAD3E0005DBA7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC908202AAD3E0005DBA7 /* ViewController.m */; };
+		4D4DC909202AAD3E0005DBA7 /* LoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC908202AAD3E0005DBA7 /* LoginVC.m */; };
 		4D4DC90C202AAD3E0005DBA7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC90A202AAD3E0005DBA7 /* Main.storyboard */; };
 		4D4DC90F202AAD3E0005DBA7 /* ECommerce.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC90D202AAD3E0005DBA7 /* ECommerce.xcdatamodeld */; };
 		4D4DC911202AAD3E0005DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC910202AAD3E0005DBA7 /* Assets.xcassets */; };
 		4D4DC914202AAD3E0005DBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC912202AAD3E0005DBA7 /* LaunchScreen.storyboard */; };
 		4D4DC917202AAD3E0005DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC916202AAD3E0005DBA7 /* main.m */; };
+		4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */; };
+		4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */; };
 		A1FC0F3E872BF3C85028F8A6 /* libPods-ECommerce.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AE0954612C14F0D0B50F70C /* Pods-ECommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce.debug.xcconfig"; sourceTree = "<group>"; };
 		3B867558F02355C3AEE4A3D9 /* Pods-ECommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce.release.xcconfig"; sourceTree = "<group>"; };
+		4D1DC65A202B78D900F3DE9A /* SignupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupVC.h; sourceTree = "<group>"; };
+		4D1DC65B202B78D900F3DE9A /* SignupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupVC.m; sourceTree = "<group>"; };
+		4D1DC65E202B985900F3DE9A /* NSString+NSString_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+NSString_Extension.h"; sourceTree = "<group>"; };
+		4D1DC65F202B985900F3DE9A /* NSString+NSString_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSString_Extension.m"; sourceTree = "<group>"; };
+		4D1DC662202B9CF500F3DE9A /* UIViewController+UIVC_Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+UIVC_Extension.h"; sourceTree = "<group>"; };
+		4D1DC663202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+UIVC_Extension.m"; sourceTree = "<group>"; };
+		4D1DC665202BB17300F3DE9A /* APIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIClient.h; sourceTree = "<group>"; };
+		4D1DC666202BB17300F3DE9A /* APIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIClient.m; sourceTree = "<group>"; };
+		4D1DC669202BB24D00F3DE9A /* AppUserManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppUserManager.h; sourceTree = "<group>"; };
+		4D1DC66A202BB24D00F3DE9A /* AppUserManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppUserManager.m; sourceTree = "<group>"; };
+		4D1DC670202BDF7000F3DE9A /* EndpointHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EndpointHelper.h; sourceTree = "<group>"; };
+		4D1DC671202BDF7000F3DE9A /* EndpointHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EndpointHelper.m; sourceTree = "<group>"; };
+		4D1DC673202C156A00F3DE9A /* AccountVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountVC.h; sourceTree = "<group>"; };
+		4D1DC674202C156A00F3DE9A /* AccountVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountVC.m; sourceTree = "<group>"; };
+		4D3E5DA8202CD77F00633292 /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		4D3E5DA9202CD77F00633292 /* Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		4D3E5DAB202CEF5400633292 /* Product.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
+		4D3E5DAC202CEF5400633292 /* Product.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
+		4D3E5DAE202CF22300633292 /* SubCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubCategory.h; sourceTree = "<group>"; };
+		4D3E5DAF202CF22300633292 /* SubCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubCategory.m; sourceTree = "<group>"; };
+		4D3E5DB1202D333900633292 /* SubCategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubCategoryVC.h; sourceTree = "<group>"; };
+		4D3E5DB2202D333900633292 /* SubCategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubCategoryVC.m; sourceTree = "<group>"; };
+		4D3E5DB4202D334700633292 /* ProductListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductListVC.h; sourceTree = "<group>"; };
+		4D3E5DB5202D334700633292 /* ProductListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductListVC.m; sourceTree = "<group>"; };
+		4D3E5DB7202D335900633292 /* ProductDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductDetailVC.h; sourceTree = "<group>"; };
+		4D3E5DB8202D335900633292 /* ProductDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductDetailVC.m; sourceTree = "<group>"; };
 		4D4DC901202AAD3E0005DBA7 /* ECommerce.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ECommerce.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D4DC904202AAD3E0005DBA7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D4DC905202AAD3E0005DBA7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4D4DC907202AAD3E0005DBA7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4D4DC908202AAD3E0005DBA7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4D4DC907202AAD3E0005DBA7 /* LoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginVC.h; sourceTree = "<group>"; };
+		4D4DC908202AAD3E0005DBA7 /* LoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginVC.m; sourceTree = "<group>"; };
 		4D4DC90B202AAD3E0005DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D4DC90E202AAD3E0005DBA7 /* ECommerce.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ECommerce.xcdatamodel; sourceTree = "<group>"; };
 		4D4DC910202AAD3E0005DBA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D4DC913202AAD3E0005DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D4DC915202AAD3E0005DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4DC916202AAD3E0005DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DB3E414202CC7DF00EE02F6 /* CategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryVC.h; sourceTree = "<group>"; };
+		4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryVC.m; sourceTree = "<group>"; };
+		4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
+		4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubCategoryCell.m; sourceTree = "<group>"; };
 		E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ECommerce.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -46,10 +91,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D1DC65D202B78E000F3DE9A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D4DC907202AAD3E0005DBA7 /* LoginVC.h */,
+				4D4DC908202AAD3E0005DBA7 /* LoginVC.m */,
+				4D1DC65A202B78D900F3DE9A /* SignupVC.h */,
+				4D1DC65B202B78D900F3DE9A /* SignupVC.m */,
+				4D1DC673202C156A00F3DE9A /* AccountVC.h */,
+				4D1DC674202C156A00F3DE9A /* AccountVC.m */,
+				4DB3E414202CC7DF00EE02F6 /* CategoryVC.h */,
+				4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */,
+				4D3E5DB1202D333900633292 /* SubCategoryVC.h */,
+				4D3E5DB2202D333900633292 /* SubCategoryVC.m */,
+				4D3E5DB4202D334700633292 /* ProductListVC.h */,
+				4D3E5DB5202D334700633292 /* ProductListVC.m */,
+				4D3E5DB7202D335900633292 /* ProductDetailVC.h */,
+				4D3E5DB8202D335900633292 /* ProductDetailVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		4D1DC661202B98DB00F3DE9A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D1DC65E202B985900F3DE9A /* NSString+NSString_Extension.h */,
+				4D1DC65F202B985900F3DE9A /* NSString+NSString_Extension.m */,
+				4D1DC662202B9CF500F3DE9A /* UIViewController+UIVC_Extension.h */,
+				4D1DC663202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		4D1DC668202BB17800F3DE9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				4D1DC665202BB17300F3DE9A /* APIClient.h */,
+				4D1DC666202BB17300F3DE9A /* APIClient.m */,
+				4D1DC670202BDF7000F3DE9A /* EndpointHelper.h */,
+				4D1DC671202BDF7000F3DE9A /* EndpointHelper.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		4D1DC66C202BB25300F3DE9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D1DC669202BB24D00F3DE9A /* AppUserManager.h */,
+				4D1DC66A202BB24D00F3DE9A /* AppUserManager.m */,
+				4D3E5DA8202CD77F00633292 /* Category.h */,
+				4D3E5DA9202CD77F00633292 /* Category.m */,
+				4D3E5DAB202CEF5400633292 /* Product.h */,
+				4D3E5DAC202CEF5400633292 /* Product.m */,
+				4D3E5DAE202CF22300633292 /* SubCategory.h */,
+				4D3E5DAF202CF22300633292 /* SubCategory.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		4D4DC8F8202AAD3E0005DBA7 = {
 			isa = PBXGroup;
 			children = (
 				4D4DC903202AAD3E0005DBA7 /* ECommerce */,
+				4D4DC90A202AAD3E0005DBA7 /* Main.storyboard */,
 				4D4DC902202AAD3E0005DBA7 /* Products */,
 				99B261C1512D760810AF6F2A /* Pods */,
 				5E39A6E4D6117EF324AE3229 /* Frameworks */,
@@ -68,10 +172,11 @@
 			isa = PBXGroup;
 			children = (
 				4D4DC91D202AAD7C0005DBA7 /* Supporting Files */,
-				4D4DC907202AAD3E0005DBA7 /* ViewController.h */,
-				4D4DC908202AAD3E0005DBA7 /* ViewController.m */,
-				4D4DC90A202AAD3E0005DBA7 /* Main.storyboard */,
-				4D4DC90D202AAD3E0005DBA7 /* ECommerce.xcdatamodeld */,
+				4D1DC65D202B78E000F3DE9A /* Controller */,
+				4D1DC661202B98DB00F3DE9A /* Utilities */,
+				4D1DC668202BB17800F3DE9A /* Network */,
+				4D1DC66C202BB25300F3DE9A /* Model */,
+				4DB3E41A202CC8ED00EE02F6 /* View */,
 			);
 			path = ECommerce;
 			sourceTree = "<group>";
@@ -79,6 +184,7 @@
 		4D4DC91D202AAD7C0005DBA7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D4DC90D202AAD3E0005DBA7 /* ECommerce.xcdatamodeld */,
 				4D4DC904202AAD3E0005DBA7 /* AppDelegate.h */,
 				4D4DC905202AAD3E0005DBA7 /* AppDelegate.m */,
 				4D4DC910202AAD3E0005DBA7 /* Assets.xcassets */,
@@ -87,6 +193,15 @@
 				4D4DC916202AAD3E0005DBA7 /* main.m */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4DB3E41A202CC8ED00EE02F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */,
+				4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5E39A6E4D6117EF324AE3229 /* Frameworks */ = {
@@ -197,9 +312,23 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/RMessage/RMessage/Resources/RMessageView.xib",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundErrorIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundSuccessIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationBackgroundWarningIcon@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/NotificationButtonBackground@2x.png",
+				"${PODS_ROOT}/RMessage/RMessage/Assets/RMessageDefaultDesign.json",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,10 +360,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D4DC909202AAD3E0005DBA7 /* ViewController.m in Sources */,
+				4D3E5DB0202CF22300633292 /* SubCategory.m in Sources */,
+				4D4DC909202AAD3E0005DBA7 /* LoginVC.m in Sources */,
 				4D4DC90F202AAD3E0005DBA7 /* ECommerce.xcdatamodeld in Sources */,
+				4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */,
+				4D3E5DB6202D334700633292 /* ProductListVC.m in Sources */,
+				4D1DC664202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m in Sources */,
+				4D1DC65C202B78D900F3DE9A /* SignupVC.m in Sources */,
+				4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */,
+				4D3E5DB3202D333900633292 /* SubCategoryVC.m in Sources */,
+				4D3E5DAD202CEF5400633292 /* Product.m in Sources */,
+				4D1DC660202B985900F3DE9A /* NSString+NSString_Extension.m in Sources */,
+				4D3E5DAA202CD77F00633292 /* Category.m in Sources */,
 				4D4DC917202AAD3E0005DBA7 /* main.m in Sources */,
+				4D3E5DB9202D335900633292 /* ProductDetailVC.m in Sources */,
 				4D4DC906202AAD3E0005DBA7 /* AppDelegate.m in Sources */,
+				4D1DC675202C156A00F3DE9A /* AccountVC.m in Sources */,
+				4D1DC66B202BB24D00F3DE9A /* AppUserManager.m in Sources */,
+				4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */,
+				4D1DC667202BB17300F3DE9A /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
