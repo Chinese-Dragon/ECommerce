@@ -185,7 +185,39 @@
 }
 
 - (void)fetchProductListWithSubcategoryId:(NSString *)subCategoryId completionHandler:(FetchProductsResult)completion {
+	// configure AFHTTPSession manager
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
 	
+	// get url
+	NSURL *url = [EndpointHelper.shareInstance getProductListUrlWithId:subCategoryId];
+	
+	// make request
+	[manager GET:url.absoluteString
+	  parameters:nil
+		progress:nil
+		 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+			 // NOTE: parse resonse should not be here. this way iolates SOLID principle,need abstraction
+			 if ([responseObject isKindOfClass: [NSDictionary class]]) {
+				 NSDictionary *json = responseObject;
+				 NSArray *jsonArray = [json valueForKey:@"Product"];
+				 
+				 // all good start parsing
+				 NSMutableArray<Product *> *productList = [NSMutableArray array];
+				 for (id jsonObj in jsonArray) {
+					 NSLog(@"%@", [jsonObj description]);
+					 Product *newProduct = [[Product alloc] initWithDictionary:jsonObj error:nil];
+					 [productList addObject:newProduct];
+				 }
+				 
+				 completion(productList, nil);
+			 }
+		 }
+		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+			 NSLog(@"%@", error.localizedDescription);
+			 completion(nil, [error localizedDescription]);
+		 }];
 }
 
 - (void)resetPasswordWithPhone:(NSString *)phoneNumber oldPassword:(NSString *)oldPass newPassword:(NSString *)newPass {

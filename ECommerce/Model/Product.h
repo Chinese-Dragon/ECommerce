@@ -13,8 +13,9 @@
 
 @property (nonatomic) NSString *productId;
 @property (nonatomic) NSString *name;
-@property (nonatomic) NSInteger *quantity;
-@property (nonatomic) NSInteger *price;
-@property (nonatomic) NSString *productDescription;
-@property (nonatomic) NSURL *productImage;
+@property (nonatomic) NSNumber *quantity;
+@property (nonatomic) NSNumber *price;
+@property (nonatomic) NSString <Optional> *productDescription;
+@property (nonatomic) NSURL <Optional> *productImage;
+
 @end

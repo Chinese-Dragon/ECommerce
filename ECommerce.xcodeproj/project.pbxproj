@@ -27,6 +27,7 @@
 		4D4DC911202AAD3E0005DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC910202AAD3E0005DBA7 /* Assets.xcassets */; };
 		4D4DC914202AAD3E0005DBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC912202AAD3E0005DBA7 /* LaunchScreen.storyboard */; };
 		4D4DC917202AAD3E0005DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC916202AAD3E0005DBA7 /* main.m */; };
+		4DAA6F85202D580800A5566A /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F84202D580800A5566A /* ProductCell.m */; };
 		4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */; };
 		4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */; };
 		A1FC0F3E872BF3C85028F8A6 /* libPods-ECommerce.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */; };
@@ -72,6 +73,9 @@
 		4D4DC913202AAD3E0005DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D4DC915202AAD3E0005DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4DC916202AAD3E0005DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4DAA6F83202D580800A5566A /* ProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCell.h; sourceTree = "<group>"; };
+		4DAA6F84202D580800A5566A /* ProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductCell.m; sourceTree = "<group>"; };
+		4DAA6F86202D61BE00A5566A /* ProductCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCellDelegate.h; sourceTree = "<group>"; };
 		4DB3E414202CC7DF00EE02F6 /* CategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryVC.h; sourceTree = "<group>"; };
 		4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryVC.m; sourceTree = "<group>"; };
 		4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
@@ -200,6 +204,9 @@
 			children = (
 				4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */,
 				4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */,
+				4DAA6F83202D580800A5566A /* ProductCell.h */,
+				4DAA6F84202D580800A5566A /* ProductCell.m */,
+				4DAA6F86202D61BE00A5566A /* ProductCellDelegate.h */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -365,6 +372,7 @@
 				4D4DC90F202AAD3E0005DBA7 /* ECommerce.xcdatamodeld in Sources */,
 				4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */,
 				4D3E5DB6202D334700633292 /* ProductListVC.m in Sources */,
+				4DAA6F85202D580800A5566A /* ProductCell.m in Sources */,
 				4D1DC664202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m in Sources */,
 				4D1DC65C202B78D900F3DE9A /* SignupVC.m in Sources */,
 				4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */,

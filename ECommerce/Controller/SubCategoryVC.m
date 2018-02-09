@@ -15,6 +15,7 @@
 #import "SubCategoryCell.h"
 #import <UIImageView+WebCache.h>
 #import <CarbonKit.h>
+#import "ProductListVC.h"
 
 @interface SubCategoryVC () <UITableViewDelegate, UITableViewDataSource> {
 	CarbonSwipeRefresh *refresh;
@@ -34,6 +35,7 @@
     [super viewDidLoad];
 	[self setupUI];
 	if (self.currentCategory != nil) {
+		[SVProgressHUD show];
 		[self fetchSubCategoryList];
 	}
 }
@@ -58,7 +60,6 @@
 }
 
 - (void)fetchSubCategoryList {
-	[SVProgressHUD show];
 	[APIClient.shareInstance fetchSubcategoryListWithId:self.currentCategory.categoryId completionHandler:^(NSMutableArray<SubCategory *> *categories, NSString *errorMsg) {
 		[SVProgressHUD dismiss];
 		[refresh endRefreshing];
@@ -85,6 +86,17 @@
 	[cell.subCateoryImage sd_setImageWithURL:current.image placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
 	
 	return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	ProductListVC *targetVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ProductListVC"];
+	
+	// configure target
+	targetVC.subCategory = self.subCategories[indexPath.row];
+	
+	[self.navigationController pushViewController:targetVC animated:nil];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:true];
 }
 
 @end

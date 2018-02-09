@@ -23,4 +23,8 @@
 			  }];
 }
 
+- (void)setPrice:(NSNumber *)price {
+	float usdValue = [price floatValue] * 0.16;
+	_price = [NSNumber numberWithFloat:usdValue];
+}
 @end
