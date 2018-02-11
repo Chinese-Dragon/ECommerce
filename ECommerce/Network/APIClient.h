@@ -15,7 +15,9 @@ typedef void (^SignupResultHandler)(NSString *);
 typedef void (^LoginResultHandler)(NSDictionary *, NSString *);
 typedef void (^FetchCategoriesResultHandler) (NSMutableArray<Category *> *, NSString *);
 typedef void (^FetchSubCategoriesResultHandler) (NSMutableArray<SubCategory *> *, NSString *);
-typedef void (^FetchProductsResult) (NSMutableArray<Product *> *, NSString *);
+typedef void (^FetchProductsResultHandler) (NSMutableArray<Product *> *, NSString *);
+typedef void (^ForgotPassewordResultHandler) (NSString *, NSString *);
+typedef void (^ResetPasswordResultHandler) (NSString *);
 
 @interface APIClient : NSObject
 
@@ -37,10 +39,14 @@ typedef void (^FetchProductsResult) (NSMutableArray<Product *> *, NSString *);
 				 completionHandler: (FetchSubCategoriesResultHandler)completion;
 
 - (void)fetchProductListWithSubcategoryId: (NSString *)subCategoryId
-						completionHandler: (FetchProductsResult)completion;
+						completionHandler: (FetchProductsResultHandler)completion;
 
 - (void)resetPasswordWithPhone: (NSString *)phoneNumber
 				   oldPassword: (NSString *)oldPass
-				   newPassword: (NSString *)newPass;
+				   newPassword: (NSString *)newPass
+			 completionHandler: (ResetPasswordResultHandler)completion;
+
+- (void)forgotPasswordWithPhone: (NSString *)phoneNumber
+			   completonHandler: (ForgotPassewordResultHandler)completion;
 
 @end

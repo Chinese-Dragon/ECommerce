@@ -8,18 +8,27 @@
 
 #import "AccountVC.h"
 #import "AppUserManager.h"
+#import "UIColor+Style.h"
 
 @interface AccountVC ()
 
 - (void)destroyToRoot;
-
+- (void)setupUI;
 @end
 
 @implementation AccountVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+	[self setupUI];
+}
+
+- (void)setupUI {
+	UIColor *color = [UIColor barColor];
+	self.navigationController.navigationBar.translucent = NO;
+	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+	self.navigationController.navigationBar.barTintColor = color;
+	self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 - (IBAction)logout:(UIButton *)sender {

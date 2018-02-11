@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <JSONModel.h>
+#import "JSONModel.h"
 
 @interface Product : JSONModel
 
@@ -18,4 +18,5 @@
 @property (nonatomic) NSString <Optional> *productDescription;
 @property (nonatomic) NSURL <Optional> *productImage;
 
+@property (nonatomic) BOOL isAdded;
 @end

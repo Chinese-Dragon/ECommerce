@@ -7,11 +7,19 @@
 //
 
 #import "UIViewController+UIVC_Extension.h"
-#import <RMessage.h>
-#import <RMessageView.h>
+#import "RMessage.h"
+#import "RMessageView.h"
 
 @implementation UIViewController (UIVC_Extension)
 
+- (UIViewController *)contents {
+	if ([self isKindOfClass:[UINavigationController class]]) {
+		
+		return ((UINavigationController *)self).visibleViewController;
+	} else {
+		return self;
+	}
+}
 
 - (void)showErrorMessage:(NSString *)message
 		inViewController:(UIViewController *)viewcontroller {

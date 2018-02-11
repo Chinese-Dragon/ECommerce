@@ -7,19 +7,29 @@
 //
 
 #import "AppUserManager.h"
-
+#import "ProductOrder.h"
 @implementation AppUserManager
-
-NSString *apiKey, *userName, *userId, *userEmail, *phone;
 NSString *userDefaultKey = @"AppUserDefaultKey";
 
-+ (id)sharedManager {
+NSString *apiKey, *userName, *userId, *userEmail, *phone;
+
+
++ (AppUserManager *)sharedManager {
 	static AppUserManager *sharedManager = nil;
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
 		sharedManager = [[self alloc] init];
 	});
 	return sharedManager;
+}
+
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		_productOrdersDict = [NSMutableDictionary dictionary];
+	}
+	return self;
 }
 
 - (void)saveUserData:(NSDictionary *)jsonDict {

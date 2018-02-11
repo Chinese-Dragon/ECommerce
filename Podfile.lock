@@ -18,6 +18,8 @@ PODS:
   - HexColors (4.0.0)
   - IQKeyboardManager (5.0.7)
   - JSONModel (1.7.0)
+  - JVFloatLabeledTextField (1.2.1)
+  - PKYStepper (0.0.1)
   - PPTopMostController (0.0.1)
   - RMessage (2.1.5):
     - HexColors (~> 4.0)
@@ -32,6 +34,8 @@ DEPENDENCIES:
   - CarbonKit
   - IQKeyboardManager
   - JSONModel
+  - JVFloatLabeledTextField
+  - PKYStepper (= 0.0.1)
   - RMessage
   - SDWebImage (~> 4.0)
   - SVProgressHUD
@@ -42,11 +46,13 @@ SPEC CHECKSUMS:
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
+  PKYStepper: 8dacefbddf9fa2b6aaec2ef828b46a78daa2db7d
   PPTopMostController: 4e6f1e5f8c645bdcc74cd837a20f607ff262c048
   RMessage: 31d44bd26a8f353f987d2e7194f3e9ffb203cbf2
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: f83af585c15daff156044ef59759a846a84ffb5c
+PODFILE CHECKSUM: 1ad3f275daeefca71a3003d75b8f1ce58a1ecd0d
 
 COCOAPODS: 1.3.1

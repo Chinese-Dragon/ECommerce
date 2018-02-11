@@ -21,9 +21,6 @@
 - (void)awakeFromNib {
 	[super awakeFromNib];
 	// customized
-	_subCateoryImage.layer.cornerRadius = _subCateoryImage.frame.size.width / 2;
-	_subCateoryImage.layer.masksToBounds = YES;
-	_subCateoryImage.clipsToBounds = YES;
 }
 
 @end

@@ -82,6 +82,7 @@
 	  parameters:nil
 		progress:nil
 		 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+			 NSLog(@"%@", responseObject);
 			 
 			 // if return is not a json array then it's not success, we need to get the msg
 			 if (![responseObject isKindOfClass:[NSArray class]]) {
@@ -89,11 +90,13 @@
 				 if (jsonDict == nil) {
 					 completion(nil, @"Backend guy did not return anything");
 				 } else if ([((NSArray *)jsonDict[@"msg"]).firstObject isKindOfClass:[NSString class]]){
-					 // check if the msg is int or string
+					 // Too much attemps,try in the second 5 second msg
 					 NSString *msg = ((NSArray *)jsonDict[@"msg"]).firstObject;
 					 completion(nil, msg);
 				 } else {
-					 completion(nil, @"msg is just a number");
+					 // error loginin, show how many attempts
+					 NSString *attemptsLeft = ((NSArray *)jsonDict[@"msg"]).firstObject;
+					 completion(nil, [NSString stringWithFormat:@"Wrong password, %@ attemps left", attemptsLeft]);
 				 }
 			 } else {
 				 // return error nil only if reponse msg is "success"
@@ -109,7 +112,7 @@
 			 
 		 }
 		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-			 completion(nil, error.localizedDescription);
+			 completion(nil, @"Too many attempts, try again in 5 mins");
 		 }];
 }
 
@@ -184,7 +187,7 @@
 		 }];
 }
 
-- (void)fetchProductListWithSubcategoryId:(NSString *)subCategoryId completionHandler:(FetchProductsResult)completion {
+- (void)fetchProductListWithSubcategoryId:(NSString *)subCategoryId completionHandler:(FetchProductsResultHandler)completion {
 	// configure AFHTTPSession manager
 	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer = [AFJSONResponseSerializer serializer];
@@ -220,7 +223,69 @@
 		 }];
 }
 
-- (void)resetPasswordWithPhone:(NSString *)phoneNumber oldPassword:(NSString *)oldPass newPassword:(NSString *)newPass {
+- (void)resetPasswordWithPhone:(NSString *)phoneNumber oldPassword:(NSString *)oldPass newPassword:(NSString *)newPass completionHandler:(ResetPasswordResultHandler)completion {
 	
+	// configure AFHTTPSession manager
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
+	
+	// get url
+	NSURL *url = [EndpointHelper.shareInstance getResetPassUrlWithNumber:phoneNumber password:oldPass newPassword:newPass];
+	
+	[manager POST:url.absoluteString
+	   parameters:nil progress:nil
+		  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+			  if ([responseObject isKindOfClass: [NSDictionary class]]) {
+				  NSDictionary *jsonDict = responseObject;
+				  NSArray *responseArray = [jsonDict valueForKey:@"msg"];
+				  NSString *msg = [((NSString *)responseArray.firstObject) stringByStrippingWhitespace];
+				  if ([msg isEqualToString:@"password reset successfully"]) {
+					  completion(nil);
+				  } else {
+					  completion(msg);
+				  }
+			  } else {
+				  completion(@"Invalid Response");
+			  }
+		  }
+		  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+			  NSLog(@"%@", error.localizedDescription);
+			  completion([error localizedDescription]);
+		  }];
 }
+
+- (void)forgotPasswordWithPhone:(NSString *)phoneNumber
+			   completonHandler:(ForgotPassewordResultHandler)completion {
+	// configure AFHTTPSession manager
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
+	
+	// get url
+	NSURL *url = [EndpointHelper.shareInstance getForgotPassUrlWithNumber:phoneNumber];
+	
+	//
+	[manager GET:url.absoluteString
+	  parameters:nil
+		progress:nil
+		 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+			 if ([responseObject isKindOfClass: [NSArray class]]) {
+				 // sucess response
+				 NSDictionary *jsonDict = ((NSArray *)responseObject).firstObject;
+				 NSString *oldPass = [jsonDict valueForKey:@"UserPassword"];
+				 completion(oldPass, nil);
+			 } else {
+				 // error
+				 NSDictionary *jsonDict = responseObject;
+				 NSArray *responseArray = [jsonDict valueForKey:@"msg"];
+				 NSString *msg = [((NSString *)responseArray.firstObject) stringByStrippingWhitespace];
+				 completion(nil, msg);
+			 }
+		 }
+		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+			 
+		 }];
+}
+
 @end

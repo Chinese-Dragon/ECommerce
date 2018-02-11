@@ -9,12 +9,12 @@
 #import "SubCategoryVC.h"
 #import "Category.h"
 #import "APIClient.h"
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 #import "SubCategory.h"
 #import "UIViewController+UIVC_Extension.h"
 #import "SubCategoryCell.h"
-#import <UIImageView+WebCache.h>
-#import <CarbonKit.h>
+#import "UIImageView+WebCache.h"
+#import "CarbonKit.h"
 #import "ProductListVC.h"
 
 @interface SubCategoryVC () <UITableViewDelegate, UITableViewDataSource> {
@@ -42,7 +42,7 @@
 
 - (void)setupUI {
 	self.tableview.rowHeight = UITableViewAutomaticDimension;
-	self.tableview.estimatedRowHeight = 70;
+	self.tableview.estimatedRowHeight = 120;
 	
 	refresh = [[CarbonSwipeRefresh alloc] initWithScrollView:self.tableview];
 	[refresh setColors:@[

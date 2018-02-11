@@ -10,13 +10,15 @@
 #import "Category.h"
 #import "APIClient.h"
 #import <SDWEbImage/UIImageView+WebCache.h>
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 #import "UIViewController+UIVC_Extension.h"
-#import <CarbonKit.h>
+#import "CarbonKit.h"
 #import "SubCategoryVC.h"
+#import "UIColor+Style.h"
 
 @interface CategoryVC () <CarbonTabSwipeNavigationDelegate> {
 	CarbonTabSwipeNavigation *swipeNav;
+	UIColor *color;
 }
 
 @property (nonatomic, strong) NSMutableArray<Category *> *categories;
@@ -24,16 +26,27 @@
 - (void)fetchCategoryList;
 - (void)setupSwipeNavigation;
 - (void)style;
+- (void)setupUI;
 @end
 
 @implementation CategoryVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	NSLog(@"CategoryVC's view is loaded");
+	[self setupUI];
+	
 	self.categories = [NSMutableArray array];
 	
 	// fetch data
 	[self fetchCategoryList];
+}
+
+- (void)setupUI {
+	color = [UIColor barColor];
+	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+	self.navigationController.navigationBar.barTintColor = color;
+	self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 - (void)fetchCategoryList {
@@ -65,12 +78,6 @@
 }
 
 - (void)style {
-	UIColor *color = [UIColor colorWithRed:24.0 / 255 green:75.0 / 255 blue:152.0 / 255 alpha:1];
-	self.navigationController.navigationBar.translucent = NO;
-	self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-	self.navigationController.navigationBar.barTintColor = color;
-	self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-	
 	swipeNav.toolbar.translucent = NO;
 	[swipeNav setIndicatorColor:color];
 	[swipeNav setTabExtraWidth:30];

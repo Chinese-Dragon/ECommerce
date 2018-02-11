@@ -10,7 +10,7 @@
 #import "NSString+NSString_Extension.h"
 #import "UIViewController+UIVC_Extension.h"
 #import "APIClient.h"
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 #import "AppUserManager.h"
 
 
@@ -28,6 +28,8 @@
 @property (strong, nonatomic) NSString *username;
 @property (strong, nonatomic) NSString *password;
 @property (strong, nonatomic) NSString *confirmPassword;
+
+- (BOOL)validateInputs;
 @end
 
 @implementation SignupVC

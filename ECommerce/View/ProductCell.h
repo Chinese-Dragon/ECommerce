@@ -20,4 +20,7 @@
 @property (weak) id <ProductCellDelegate> delegte; // type is anyobject which will conform to this protocal
 
 + (NSString *)identifier;
+
+- (void)disable;
+- (void)enable;
 @end

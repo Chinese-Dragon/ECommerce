@@ -27,4 +27,12 @@
 	float usdValue = [price floatValue] * 0.16;
 	_price = [NSNumber numberWithFloat:usdValue];
 }
+
++(BOOL)propertyIsOptional:(NSString *)propertyName {
+	if ([propertyName isEqualToString:@"isAdded"]) {
+		return YES;
+	}
+	return NO;
+}
+
 @end

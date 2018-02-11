@@ -9,15 +9,15 @@
 #import "LoginVC.h"
 #import "NSString+NSString_Extension.h"
 #import "UIViewController+UIVC_Extension.h"
-#import <SVProgressHUD.h>
+#import "SVProgressHUD.h"
 #import "APIClient.h"
 #import "AppUserManager.h"
-
+#import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
 
 @interface LoginVC () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
-@property (weak, nonatomic) IBOutlet UITextField *phoneTextfield;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextfield;
+@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *phoneTextfield;
+@property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *passwordTextfield;
 
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *password;

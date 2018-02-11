@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class ProductOrder;
 @interface AppUserManager : NSObject
+
+@property (strong, nonatomic) NSMutableDictionary<NSString *, ProductOrder *> *productOrdersDict;
 
 - (NSString *)getApiKey;
 - (NSString *)getUserName;
@@ -22,5 +25,5 @@
 - (void)restore;
 - (void)reset;
 
-+(id)sharedManager;
++(AppUserManager *)sharedManager;
 @end

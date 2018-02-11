@@ -18,4 +18,6 @@
 
 - (void)showWarningMessage:(NSString *)message
 		 inViewController:(UIViewController *)viewcontroller;
+
+- (UIViewController *)contents;
 @end

@@ -27,14 +27,22 @@
 		4D4DC911202AAD3E0005DBA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC910202AAD3E0005DBA7 /* Assets.xcassets */; };
 		4D4DC914202AAD3E0005DBA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D4DC912202AAD3E0005DBA7 /* LaunchScreen.storyboard */; };
 		4D4DC917202AAD3E0005DBA7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4DC916202AAD3E0005DBA7 /* main.m */; };
+		4D72E631202F944C00D2F7C3 /* MyTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D72E630202F944C00D2F7C3 /* MyTabBarController.m */; };
+		4D72E634202FF5E000D2F7C3 /* UIColor+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D72E633202FF5E000D2F7C3 /* UIColor+Style.m */; };
 		4DAA6F85202D580800A5566A /* ProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F84202D580800A5566A /* ProductCell.m */; };
+		4DAA6F8C202E142300A5566A /* ForgotPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F8B202E142300A5566A /* ForgotPasswordVC.m */; };
+		4DAA6F8F202E143100A5566A /* ResetPasswordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F8E202E143100A5566A /* ResetPasswordVC.m */; };
+		4DAA6F92202E252B00A5566A /* CartVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F91202E252B00A5566A /* CartVC.m */; };
+		4DAA6F95202E39A400A5566A /* ProductOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F94202E39A400A5566A /* ProductOrder.m */; };
+		4DAA6F98202E5A9B00A5566A /* ProductOrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DAA6F97202E5A9B00A5566A /* ProductOrderCell.m */; };
 		4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */; };
 		4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */; };
-		A1FC0F3E872BF3C85028F8A6 /* libPods-ECommerce.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */; };
+		8F64B1DED883FD228620BF94 /* Pods_ECommerce.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B3505B37732D144857FB834 /* Pods_ECommerce.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1AE0954612C14F0D0B50F70C /* Pods-ECommerce.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerce.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce.debug.xcconfig"; sourceTree = "<group>"; };
+		3B3505B37732D144857FB834 /* Pods_ECommerce.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ECommerce.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B867558F02355C3AEE4A3D9 /* Pods-ECommerce.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ECommerce.release.xcconfig"; path = "Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce.release.xcconfig"; sourceTree = "<group>"; };
 		4D1DC65A202B78D900F3DE9A /* SignupVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupVC.h; sourceTree = "<group>"; };
 		4D1DC65B202B78D900F3DE9A /* SignupVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupVC.m; sourceTree = "<group>"; };
@@ -73,14 +81,29 @@
 		4D4DC913202AAD3E0005DBA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D4DC915202AAD3E0005DBA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D4DC916202AAD3E0005DBA7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4D72E62D202F4BEF00D2F7C3 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		4D72E62E202F7E9300D2F7C3 /* ProductOrderCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductOrderCellDelegate.h; sourceTree = "<group>"; };
+		4D72E62F202F944C00D2F7C3 /* MyTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTabBarController.h; sourceTree = "<group>"; };
+		4D72E630202F944C00D2F7C3 /* MyTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTabBarController.m; sourceTree = "<group>"; };
+		4D72E632202FF5E000D2F7C3 /* UIColor+Style.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Style.h"; sourceTree = "<group>"; };
+		4D72E633202FF5E000D2F7C3 /* UIColor+Style.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Style.m"; sourceTree = "<group>"; };
 		4DAA6F83202D580800A5566A /* ProductCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCell.h; sourceTree = "<group>"; };
 		4DAA6F84202D580800A5566A /* ProductCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductCell.m; sourceTree = "<group>"; };
 		4DAA6F86202D61BE00A5566A /* ProductCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductCellDelegate.h; sourceTree = "<group>"; };
+		4DAA6F8A202E142300A5566A /* ForgotPasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ForgotPasswordVC.h; sourceTree = "<group>"; };
+		4DAA6F8B202E142300A5566A /* ForgotPasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ForgotPasswordVC.m; sourceTree = "<group>"; };
+		4DAA6F8D202E143100A5566A /* ResetPasswordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResetPasswordVC.h; sourceTree = "<group>"; };
+		4DAA6F8E202E143100A5566A /* ResetPasswordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordVC.m; sourceTree = "<group>"; };
+		4DAA6F90202E252B00A5566A /* CartVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartVC.h; sourceTree = "<group>"; };
+		4DAA6F91202E252B00A5566A /* CartVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartVC.m; sourceTree = "<group>"; };
+		4DAA6F93202E39A400A5566A /* ProductOrder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductOrder.h; sourceTree = "<group>"; };
+		4DAA6F94202E39A400A5566A /* ProductOrder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductOrder.m; sourceTree = "<group>"; };
+		4DAA6F96202E5A9B00A5566A /* ProductOrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductOrderCell.h; sourceTree = "<group>"; };
+		4DAA6F97202E5A9B00A5566A /* ProductOrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductOrderCell.m; sourceTree = "<group>"; };
 		4DB3E414202CC7DF00EE02F6 /* CategoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryVC.h; sourceTree = "<group>"; };
 		4DB3E415202CC7DF00EE02F6 /* CategoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryVC.m; sourceTree = "<group>"; };
 		4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
 		4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubCategoryCell.m; sourceTree = "<group>"; };
-		E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ECommerce.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +111,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FC0F3E872BF3C85028F8A6 /* libPods-ECommerce.a in Frameworks */,
+				8F64B1DED883FD228620BF94 /* Pods_ECommerce.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +135,14 @@
 				4D3E5DB5202D334700633292 /* ProductListVC.m */,
 				4D3E5DB7202D335900633292 /* ProductDetailVC.h */,
 				4D3E5DB8202D335900633292 /* ProductDetailVC.m */,
+				4DAA6F8A202E142300A5566A /* ForgotPasswordVC.h */,
+				4DAA6F8B202E142300A5566A /* ForgotPasswordVC.m */,
+				4DAA6F8D202E143100A5566A /* ResetPasswordVC.h */,
+				4DAA6F8E202E143100A5566A /* ResetPasswordVC.m */,
+				4DAA6F90202E252B00A5566A /* CartVC.h */,
+				4DAA6F91202E252B00A5566A /* CartVC.m */,
+				4D72E62F202F944C00D2F7C3 /* MyTabBarController.h */,
+				4D72E630202F944C00D2F7C3 /* MyTabBarController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -123,6 +154,9 @@
 				4D1DC65F202B985900F3DE9A /* NSString+NSString_Extension.m */,
 				4D1DC662202B9CF500F3DE9A /* UIViewController+UIVC_Extension.h */,
 				4D1DC663202B9CF500F3DE9A /* UIViewController+UIVC_Extension.m */,
+				4D72E62D202F4BEF00D2F7C3 /* Constants.h */,
+				4D72E632202FF5E000D2F7C3 /* UIColor+Style.h */,
+				4D72E633202FF5E000D2F7C3 /* UIColor+Style.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -149,6 +183,8 @@
 				4D3E5DAC202CEF5400633292 /* Product.m */,
 				4D3E5DAE202CF22300633292 /* SubCategory.h */,
 				4D3E5DAF202CF22300633292 /* SubCategory.m */,
+				4DAA6F93202E39A400A5566A /* ProductOrder.h */,
+				4DAA6F94202E39A400A5566A /* ProductOrder.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,9 +240,12 @@
 			children = (
 				4DB3E417202CC8E700EE02F6 /* SubCategoryCell.h */,
 				4DB3E418202CC8E700EE02F6 /* SubCategoryCell.m */,
+				4DAA6F86202D61BE00A5566A /* ProductCellDelegate.h */,
 				4DAA6F83202D580800A5566A /* ProductCell.h */,
 				4DAA6F84202D580800A5566A /* ProductCell.m */,
-				4DAA6F86202D61BE00A5566A /* ProductCellDelegate.h */,
+				4D72E62E202F7E9300D2F7C3 /* ProductOrderCellDelegate.h */,
+				4DAA6F96202E5A9B00A5566A /* ProductOrderCell.h */,
+				4DAA6F97202E5A9B00A5566A /* ProductOrderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,7 +253,7 @@
 		5E39A6E4D6117EF324AE3229 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E85FD3751B58CF1674E86BC9 /* libPods-ECommerce.a */,
+				3B3505B37732D144857FB834 /* Pods_ECommerce.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -304,9 +343,32 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ECommerce/Pods-ECommerce-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/CarbonKit/CarbonKit.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/JVFloatLabeledTextField/JVFloatLabeledTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/PKYStepper/PKYStepper.framework",
+				"${BUILT_PRODUCTS_DIR}/PPTopMostController/PPTopMostController.framework",
+				"${BUILT_PRODUCTS_DIR}/RMessage/RMessage.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CarbonKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JVFloatLabeledTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKYStepper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPTopMostController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RMessage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,6 +432,7 @@
 				4D3E5DB0202CF22300633292 /* SubCategory.m in Sources */,
 				4D4DC909202AAD3E0005DBA7 /* LoginVC.m in Sources */,
 				4D4DC90F202AAD3E0005DBA7 /* ECommerce.xcdatamodeld in Sources */,
+				4D72E631202F944C00D2F7C3 /* MyTabBarController.m in Sources */,
 				4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */,
 				4D3E5DB6202D334700633292 /* ProductListVC.m in Sources */,
 				4DAA6F85202D580800A5566A /* ProductCell.m in Sources */,
@@ -377,6 +440,7 @@
 				4D1DC65C202B78D900F3DE9A /* SignupVC.m in Sources */,
 				4DB3E419202CC8E700EE02F6 /* SubCategoryCell.m in Sources */,
 				4D3E5DB3202D333900633292 /* SubCategoryVC.m in Sources */,
+				4DAA6F8C202E142300A5566A /* ForgotPasswordVC.m in Sources */,
 				4D3E5DAD202CEF5400633292 /* Product.m in Sources */,
 				4D1DC660202B985900F3DE9A /* NSString+NSString_Extension.m in Sources */,
 				4D3E5DAA202CD77F00633292 /* Category.m in Sources */,
@@ -385,7 +449,12 @@
 				4D4DC906202AAD3E0005DBA7 /* AppDelegate.m in Sources */,
 				4D1DC675202C156A00F3DE9A /* AccountVC.m in Sources */,
 				4D1DC66B202BB24D00F3DE9A /* AppUserManager.m in Sources */,
+				4DAA6F98202E5A9B00A5566A /* ProductOrderCell.m in Sources */,
+				4DAA6F8F202E143100A5566A /* ResetPasswordVC.m in Sources */,
+				4DAA6F92202E252B00A5566A /* CartVC.m in Sources */,
+				4D72E634202FF5E000D2F7C3 /* UIColor+Style.m in Sources */,
 				4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */,
+				4DAA6F95202E39A400A5566A /* ProductOrder.m in Sources */,
 				4D1DC667202BB17300F3DE9A /* APIClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,10 +589,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1AE0954612C14F0D0B50F70C /* Pods-ECommerce.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88F5VS94FS;
 				INFOPLIST_FILE = "$(SRCROOT)/ECommerce/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HungryFool.ECommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,10 +606,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B867558F02355C3AEE4A3D9 /* Pods-ECommerce.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88F5VS94FS;
 				INFOPLIST_FILE = "$(SRCROOT)/ECommerce/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HungryFool.ECommerce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
