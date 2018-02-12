@@ -14,7 +14,8 @@ target 'ECommerce' do
   pod 'SDWebImage', '~> 4.0'
   pod 'JVFloatLabeledTextField'
   pod 'PKYStepper', '0.0.1'
-
+  pod 'PayPal-iOS-SDK'
+  
   # Pods for ECommerce
 
 end

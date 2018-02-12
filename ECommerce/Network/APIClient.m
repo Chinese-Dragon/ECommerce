@@ -13,6 +13,8 @@
 #import "Category.h"
 #import "SubCategory.h"
 #import "Product.h"
+#import "ProductOrder.h"
+#import "Order.h"
 
 @implementation APIClient
 
@@ -184,7 +186,8 @@
 		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 			 NSLog(@"%@", error.localizedDescription);
 			 completion(nil, [error localizedDescription]);
-		 }];
+		 }
+	];
 }
 
 - (void)fetchProductListWithSubcategoryId:(NSString *)subCategoryId completionHandler:(FetchProductsResultHandler)completion {
@@ -220,7 +223,8 @@
 		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 			 NSLog(@"%@", error.localizedDescription);
 			 completion(nil, [error localizedDescription]);
-		 }];
+		 }
+	];
 }
 
 - (void)resetPasswordWithPhone:(NSString *)phoneNumber oldPassword:(NSString *)oldPass newPassword:(NSString *)newPass completionHandler:(ResetPasswordResultHandler)completion {
@@ -252,7 +256,8 @@
 		  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 			  NSLog(@"%@", error.localizedDescription);
 			  completion([error localizedDescription]);
-		  }];
+		  }
+	];
 }
 
 - (void)forgotPasswordWithPhone:(NSString *)phoneNumber
@@ -284,8 +289,113 @@
 			 }
 		 }
 		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-			 
-		 }];
+			 completion(nil, error.localizedDescription);
+		 }
+	];
+}
+
+
+- (void)makeOrderForProductOrders:(NSMutableArray<ProductOrder *> *)productOrders completionHandler:(OrderResultHandler)completion {
+	// configure AFHTTPSession manager
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
+	
+	// make dispatch group
+	dispatch_group_t makeOrderGroup = dispatch_group_create();
+	
+	// accumated error msg
+	NSMutableArray<NSString *> *errorArray = [NSMutableArray array];
+	
+	// OrderId array
+	NSMutableArray<NSString *> *orderIds = [NSMutableArray array];
+	
+	// make order for each productOrder
+	for (ProductOrder *productOrder in productOrders) {
+		NSString *productId = productOrder.product.productId;
+		NSString *productName = productOrder.product.name;
+		NSString *quantity = [productOrder.orderedQuantity stringValue];
+		NSString *price = [productOrder.orderedTotoalPrice stringValue];
+		
+		// get url
+		NSURL *url = [EndpointHelper.shareInstance getMakeOrderUrlWithItemId:productId
+																	itemName:productName
+															 orderedQuantity:quantity
+																  finalPrice:price];
+		// enter group
+		dispatch_group_enter(makeOrderGroup);
+		
+		// networking call
+		[manager POST:url.absoluteString
+		   parameters:nil progress:nil
+			  success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+				  dispatch_group_leave(makeOrderGroup);
+				  
+				  // process response
+				  if ([responseObject isKindOfClass:[NSDictionary class]]) {
+					  // parse response
+					  NSDictionary *jsonDict = responseObject;
+					  NSArray *jsonArray = [jsonDict valueForKey:@"Order Confirmed"];
+					  NSString *orderId = [((NSDictionary *)jsonArray.firstObject) valueForKey:@"OrderId"];
+					  
+					  // add to orderid array
+					  [orderIds addObject:orderId];
+				  } else {
+					  [errorArray addObject:@"Invalid respond"];
+				  }
+			  }
+			  failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+				  dispatch_group_leave(makeOrderGroup);
+				  
+				  // Append error
+				  [errorArray addObject:error.localizedDescription];
+			  }
+		];
+	}
+	
+	// setup notify
+	dispatch_group_notify(makeOrderGroup, dispatch_get_main_queue(), ^{
+		// complete!
+		if (errorArray.count != 0) {
+			completion(nil, [errorArray componentsJoinedByString:@"\n"]);
+		} else {
+			completion(orderIds, nil);
+		}
+	});
+}
+
+- (void)fetchOrderHistory:(FetchOrderHistoryResultHandler)completion {
+	// configure AFHTTPSession manager
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer = [AFJSONResponseSerializer serializer];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain", nil];
+	
+	NSURL *url = [EndpointHelper.shareInstance getOrderHistoryUrl];
+	
+	[manager GET:url.absoluteString
+	  parameters:nil
+		progress:nil
+		 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+			 if ([responseObject isKindOfClass: [NSDictionary class]]) {
+				 NSDictionary *json = responseObject;
+				 NSArray *jsonArray = [json valueForKey:@"Order History"];
+				 
+				 // all good start parsing
+				 NSMutableArray<Order *> *orderList = [NSMutableArray array];
+				 
+				 for (id jsonObj in jsonArray) {
+					 NSLog(@"%@", [jsonObj description]);
+					 Order *newOrder = [[Order alloc] initWithDictionary:jsonObj error:nil];
+					 [orderList addObject:newOrder];
+				 }
+				 
+				 completion(orderList, nil);
+			 }
+		 }
+		 failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+			 completion(nil, error.localizedDescription);
+		 }
+	];
 }
 
 @end

@@ -17,6 +17,9 @@ NSString *forgotPassUrl =        @"https://rjtmobile.com/ansari/shopingcart/ios_
 NSString *productCategoryUrl =  @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/cust_category.php?";
 NSString *productSubCategoryUrl =  @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/cust_sub_category.php?";
 NSString *productListUrl =      @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/cust_product.php?";
+NSString *makeOrderUrl = @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/orders.php?";
+NSString *orderHistoryUrl = @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/order_history.php?";
+NSString *orderStatusUrl = @"https://rjtmobile.com/ansari/shopingcart/ios_ssl/order_track.php?";
 
 @implementation EndpointHelper
 
@@ -101,5 +104,44 @@ NSString *productListUrl =      @"https://rjtmobile.com/ansari/shopingcart/ios_s
 	}
 	return nil;
 }
+// &item_id=    316    &item_names=     Mac-Book    &item_quantity=   1    &final_price=    70000     &mobile=    4243866571 &api_key=      ae64f53d3fd8da113d7c733a090dd8cc     &user_id=     1121
+- (NSURL *)getMakeOrderUrlWithItemId:(NSString *)itemId itemName:(NSString *)name orderedQuantity:(NSString *)quantity finalPrice:(NSString *)price {
+	AppUserManager *manager = [AppUserManager sharedManager];
+	[manager restore];
+	if ([manager getApiKey] != nil) {
+		NSString *phone = [manager getMobile];
+		NSString *key = [manager getApiKey];
+		NSString *userId = [manager getUserId];
+		
+		NSString *urlStr = [NSString stringWithFormat:@"%@&item_id=%@&item_names=%@&item_quantity=%@&final_price=%@&mobile=%@&api_key=%@&user_id=%@",makeOrderUrl, itemId, name, quantity, price, phone, key, userId];
+		NSString *remSpa = [urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+		NSURL *url = [NSURL URLWithString:remSpa];
+		return url;
+	}
+	return nil;
+}
+// &mobile=   4243866571    &api_key=   ae64f53d3fd8da113d7c733a090dd8cc   &user_id=  1121
+- (NSURL *)getOrderHistoryUrl {
+	AppUserManager *manager = [AppUserManager sharedManager];
+	[manager restore];
+	if ([manager getApiKey] != nil) {
+		NSString *phone = [manager getMobile];
+		NSString *key = [manager getApiKey];
+		NSString *userId = [manager getUserId];
+		
+		NSString *urlStr = [NSString stringWithFormat:@"%@&mobile=%@&api_key=%@&user_id=%@",orderHistoryUrl, phone, key, userId];
+		NSString *remSpa = [urlStr stringByReplacingOccurrencesOfString:@" " withString:@""];
+
+		NSURL *url = [NSURL URLWithString:remSpa];
+		return url;
+	}
+	return nil;
+}
+
+//- (NSURL *)getStatusUrlForOrderId:(NSString *)orderId {
+//	AppUserManager *manager = [AppUserManager sharedManager];
+//	[manager restore];
+//
+//}
 
 @end

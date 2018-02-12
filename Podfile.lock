@@ -15,10 +15,17 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - CarbonKit (2.2.2)
+  - CardIO (5.4.1)
   - HexColors (4.0.0)
   - IQKeyboardManager (5.0.7)
   - JSONModel (1.7.0)
   - JVFloatLabeledTextField (1.2.1)
+  - PayPal-iOS-SDK (2.18.0):
+    - PayPal-iOS-SDK/CardIO (= 2.18.0)
+    - PayPal-iOS-SDK/Core (= 2.18.0)
+  - PayPal-iOS-SDK/CardIO (2.18.0):
+    - CardIO (~> 5.4.1)
+  - PayPal-iOS-SDK/Core (2.18.0)
   - PKYStepper (0.0.1)
   - PPTopMostController (0.0.1)
   - RMessage (2.1.5):
@@ -35,6 +42,7 @@ DEPENDENCIES:
   - IQKeyboardManager
   - JSONModel
   - JVFloatLabeledTextField
+  - PayPal-iOS-SDK
   - PKYStepper (= 0.0.1)
   - RMessage
   - SDWebImage (~> 4.0)
@@ -43,16 +51,18 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   CarbonKit: 0dec4738fa489b4c043a5f850c27fd0dbefb57cc
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
   JVFloatLabeledTextField: cfc44e3c4d493b2ed92ede8035e8e89c2912ba64
+  PayPal-iOS-SDK: 3fc74982a68d54eeaf39e09f507f279dc2291860
   PKYStepper: 8dacefbddf9fa2b6aaec2ef828b46a78daa2db7d
   PPTopMostController: 4e6f1e5f8c645bdcc74cd837a20f607ff262c048
   RMessage: 31d44bd26a8f353f987d2e7194f3e9ffb203cbf2
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: 1ad3f275daeefca71a3003d75b8f1ce58a1ecd0d
+PODFILE CHECKSUM: e59b36b81891d9217fef69cee66666539ab0e89d
 
 COCOAPODS: 1.3.1

@@ -74,6 +74,8 @@
 	for (Product *product in self.products) {
 		if ([productOrdersDict objectForKey:product.productId] != nil) {
 			product.isAdded = YES;
+		} else {
+			product.isAdded = NO;
 		}
 	}
 }

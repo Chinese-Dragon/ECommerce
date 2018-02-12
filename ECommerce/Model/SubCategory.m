@@ -11,11 +11,12 @@
 @implementation SubCategory
 
 + (JSONKeyMapper*)keyMapper {
-	return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@{			@"categoryId": @"Id",
-			@"name": @"SubCatagoryName",
-			@"categoryDescription": @"SubCatagoryDiscription",
-			@"image": @"CatagoryImage"
-	}];
+	NSDictionary *mapping = @{@"categoryId": @"Id",
+							  @"name": @"SubCatagoryName",
+							  @"categoryDescription": @"SubCatagoryDiscription",
+							  @"image": @"CatagoryImage"
+							  };
+	return [[JSONKeyMapper alloc] initWithModelToJSONDictionary:mapping];
 }
 
 @end

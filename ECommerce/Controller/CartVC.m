@@ -15,14 +15,28 @@
 #import "Product.h"
 #import <PKYStepper/PKYStepper.h>
 #import "UIColor+Style.h"
+#import <PayPalMobile.h>
+#import <PayPalConfiguration.h>
+#import <PayPalPaymentViewController.h>
+#import "APIClient.h"
+#import "UIViewController+UIVC_Extension.h"
+#import "SVProgressHUD.h"
 
-@interface CartVC () <UITableViewDelegate, UITableViewDataSource, ProductOrderCellDelegate> {
+@interface CartVC () <UITableViewDelegate, UITableViewDataSource, ProductOrderCellDelegate, PayPalPaymentDelegate> {
 	NSInteger totalOrderPrice;
+	float shippingCost;
+	float tax;
 }
-@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *estimateShipping;
+@property (weak, nonatomic) IBOutlet UILabel *taxLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderTotalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalPriceLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UIButton *checkoutButton;
+
 @property (strong,nonatomic) NSMutableArray<ProductOrder *> *productOrders;
+@property (strong, nonatomic) PayPalConfiguration *paypalConfig;
 
 - (void)setupNotification;
 - (void)receiveProductOrderNotification: (NSNotification *)notification;
@@ -30,6 +44,12 @@
 - (void)updatePrice;
 - (void)updateProductOrderWith: (ProductOrder *)productOrder quantityIncreased:(BOOL)isIncreased;
 - (void)finishDeletingForRowAt: (NSIndexPath *)indexPath;
+- (void)finishMakingOrders;
+- (void)initialSetup;
+- (void)configurePaypal;
+
+- (void)enableUIComponenets;
+- (void)disenableUIComponenets;
 @end
 
 @implementation CartVC
@@ -42,14 +62,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	totalOrderPrice = 0;
-	NSLog(@"CartVC's view is loaded");
 	
-	self.productOrders = [NSMutableArray array];
+	NSLog(@"CartVC's view is loaded");
+	[self initialSetup];
+	
 	[self setupUI];
 	
 	// setup addToCartnotification observer
 	[self setupNotification];
+}
+
+- (void)initialSetup {
+	// initial setup
+	totalOrderPrice = 0;
+	shippingCost = 5.75; // NOTE: Hardcoded
+	tax = 0.0;
+	self.productOrders = [NSMutableArray array];
+	
+	[self configurePaypal];
+}
+
+- (void)configurePaypal {
+	self.paypalConfig = [[PayPalConfiguration alloc] init];
+	self.paypalConfig.acceptCreditCards = YES;
+	self.paypalConfig.merchantName = @"RJT";
+	self.paypalConfig.merchantUserAgreementURL = [NSURL URLWithString:@"https://www.paypal.com/us/webapps/mpp/ua/useragreement-full"];
+	self.paypalConfig.merchantPrivacyPolicyURL = [NSURL URLWithString:@"https://www.paypal.com/us/webapps/mpp/ua/privacy-full"];
+	self.paypalConfig.languageOrLocale = [NSLocale preferredLanguages][0];
+	self.paypalConfig.payPalShippingAddressOption = PayPalShippingAddressOptionPayPal;
+	
+	NSLog(@"Paypal SDK: %@", [PayPalMobile libraryVersion]);
 }
 
 - (void)setupUI {
@@ -106,17 +148,95 @@
 	// increase badge number
 	self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat: @"%ld", (long)self.productOrders.count];
 	
+	// show payment detail if hidden
+	if (self.tableview.tableFooterView.isHidden) {
+		[self enableUIComponenets];
+	}
+	
 	[self updatePrice];
 }
 
 - (void)updatePrice {
+	// update subtotal price label
+	float newTotal = [[NSNumber numberWithInteger:totalOrderPrice] floatValue];
+	self.totalPriceLabel.text = [NSString stringWithFormat:@"$ %.2f", newTotal];
+	
+	// update tax 7%
+	tax = totalOrderPrice * 0.07;
+	self.taxLabel.text = [NSString stringWithFormat:@"$ %.2f",tax];
+	
+	// update shpping cost
+	self.estimateShipping.text = [NSString stringWithFormat:@"$ %.2f",shippingCost];
+	
 	// update total price label
-	NSString *newTotalStr = [[NSNumber numberWithInteger:totalOrderPrice] stringValue];
-	self.totalPriceLabel.text = [NSString stringWithFormat:@"$ %@", newTotalStr];
+	float orderTotal = (totalOrderPrice * 1.0) + tax + shippingCost;
+	self.orderTotalLabel.text = [NSString stringWithFormat:@"$ %.2f",orderTotal];
+}
+
+- (void)enableUIComponenets {
+	[self.tableview.tableFooterView setHidden:NO];
+	
+	// enable checkout button
+	[self.checkoutButton setEnabled:YES];
+	[self.checkoutButton setBackgroundColor:[UIColor barColor]];
+	[self.checkoutButton setUserInteractionEnabled:YES];
+}
+
+- (void)disenableUIComponenets {
+	self.navigationController.tabBarItem.badgeValue = nil;
+	// hide payment detail
+	[self.tableview.tableFooterView setHidden:YES];
+	
+	// disable checkout button
+	// enable checkout button
+	[self.checkoutButton setEnabled:NO];
+	[self.checkoutButton setBackgroundColor:[UIColor lightGrayColor]];
+	[self.checkoutButton setUserInteractionEnabled:NO];
 }
 
 - (IBAction)checkOut:(UIButton *)sender {
-	// TODO: Check out
+	// convert shopping carts to paypal items array
+	NSMutableArray<PayPalItem *> *paypalItems = [NSMutableArray array];
+	for (ProductOrder *productOrder in self.productOrders) {
+		PayPalItem *item = [PayPalItem itemWithName:productOrder.product.name
+									   withQuantity:productOrder.orderedQuantity.integerValue
+										  withPrice:[NSDecimalNumber decimalNumberWithDecimal:productOrder.orderedTotoalPrice.decimalValue]
+									   withCurrency:@"USD"
+											withSku:nil];
+		[paypalItems addObject:item];
+	}
+	
+	// setup payment detail
+	NSDecimalNumber *subtotal = [PayPalItem totalPriceForItems:[paypalItems copy]];
+	NSDecimalNumber *shipping = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%.2f",shippingCost]];
+	NSDecimalNumber *taxCost = [NSDecimalNumber decimalNumberWithString:[NSString stringWithFormat:@"%.2f",tax]];
+	
+	PayPalPaymentDetails *paymentDetails = [PayPalPaymentDetails paymentDetailsWithSubtotal:subtotal
+																			   withShipping:shipping
+																					withTax:taxCost];
+	// total cost
+	NSDecimalNumber *totalCost = [[subtotal decimalNumberByAdding:shipping] decimalNumberByAdding:taxCost];
+	
+	// setup payment
+	PayPalPayment *payment = [[PayPalPayment alloc] init];
+	payment.amount = totalCost;
+	payment.currencyCode = @"USD";
+	payment.shortDescription = @"My Payment";
+	payment.items = paypalItems;
+	payment.paymentDetails = paymentDetails;
+	
+	// HARDCODED
+	payment.shippingAddress = [PayPalShippingAddress shippingAddressWithRecipientName:@"Mark" withLine1:@"2056 Wessel Ct" withLine2:nil withCity:@"St Charles" withState:@"IL" withPostalCode:@"60174" withCountryCode:@"+1"];
+
+	if (payment.processable) {
+		// setup PaypalPaymanetVC
+		PayPalPaymentViewController *paymentVC = [[PayPalPaymentViewController alloc] initWithPayment:payment
+																						configuration:self.paypalConfig
+																							 delegate:self];
+		[self presentViewController:paymentVC animated:YES completion:nil];
+	} else {
+		NSLog(@"Something went wrong when setting up payment");
+	}
 }
 
 - (void)updateProductOrderWith:(ProductOrder *)productOrder quantityIncreased:(BOOL)isIncreased {
@@ -154,13 +274,13 @@
 	if (self.productOrders.count != 0) {
 		self.navigationController.tabBarItem.badgeValue = [NSString stringWithFormat: @"%ld", (long)self.productOrders.count];
 	} else {
-		self.navigationController.tabBarItem.badgeValue = nil;
+		[self disenableUIComponenets];
 	}
 	
 	// update price
 	[self updatePrice];
 	
-	
+
 	// NOTE: FOR TESTING
 	// check central
 	// check totalprice property
@@ -168,6 +288,20 @@
 	NSLog(@"Number of ProductOrder in Central Manager %ld", (long)AppUserManager.sharedManager.productOrdersDict.count);
 	NSLog(@"Number of items in datasource %ld", (long)self.productOrders.count);
 	NSLog(@"Total Price %ld", (long)totalOrderPrice);
+}
+
+- (void)finishMakingOrders {
+	// clean up datasouce
+	[self.productOrders removeAllObjects];
+	
+	// clean up central manager productOrder dict
+	[AppUserManager.sharedManager.productOrdersDict removeAllObjects];
+	
+	// reload table
+	[self.tableview reloadData];
+	
+	// disable UI components
+	[self disenableUIComponenets];
 }
 
 // MARK: - Tableview delegates
@@ -236,6 +370,45 @@
 	ProductOrder *productOrder = self.productOrders[indexPath.row];
 	
 	[self updateProductOrderWith:productOrder quantityIncreased:NO];
+}
+
+// MARK: - Paypal Delegate Methods
+- (void)payPalPaymentDidCancel:(PayPalPaymentViewController *)paymentViewController {
+	NSLog(@"Payment process is cancelled");
+	[self dismissViewControllerAnimated:YES completion:nil];
+	
+}
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController didCompletePayment:(PayPalPayment *)completedPayment {
+	NSLog(@"Payment is finished");
+	NSLog(@"Payment info %@", [completedPayment description]);
+	
+	// [self sendCompletedPaymentToServer:completedPayment]; // Payment was processed successfully; send to your server for verification and fulfillment
+	[SVProgressHUD showWithStatus:@"Making orders..."];
+	[APIClient.shareInstance makeOrderForProductOrders:self.productOrders completionHandler:^(NSMutableArray<NSString *> *orderIds, NSString *errorMsg) {
+		[SVProgressHUD dismiss];
+		[self dismissViewControllerAnimated:YES completion:nil];
+		
+		if (errorMsg == nil) {
+			if (orderIds.count == self.productOrders.count) {
+				// successuly make order
+				[self finishMakingOrders];
+				
+				//
+				[self showSuccessMessage:@"Your Orders Will be on the way soon !" inViewController:self];
+				
+				// TODO: Nav to order VC
+			}
+		} else {
+			[self showErrorMessage:errorMsg inViewController:self];
+			// display error
+		}
+	}];
+}
+
+- (void)payPalPaymentViewController:(PayPalPaymentViewController *)paymentViewController willCompletePayment:(PayPalPayment *)completedPayment completionBlock:(PayPalPaymentDelegateCompletionBlock)completionBlock {
+	NSLog(@"Payment is about to finished");
+	completionBlock();
 }
 
 @end

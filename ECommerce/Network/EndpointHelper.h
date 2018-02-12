@@ -31,4 +31,13 @@
 - (NSURL *)getSubCategoryUrlWithId: (NSString *)Id;
 - (NSURL *)getProductListUrlWithId: (NSString *)Id;
 
+- (NSURL *)getMakeOrderUrlWithItemId: (NSString *)itemId
+							itemName:(NSString *)name
+					 orderedQuantity: (NSString *)quantity
+						  finalPrice: (NSString *)price;
+
+- (NSURL *)getOrderHistoryUrl;
+
+- (NSURL *)getStatusUrlForOrderId: (NSString *)orderId;
+
 @end

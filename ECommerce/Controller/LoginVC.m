@@ -28,11 +28,6 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	
-}
-
-- (IBAction)forgetPassword:(UIButton *)sender {
-	
 }
 
 - (IBAction)loginAction:(UIButton *)sender {

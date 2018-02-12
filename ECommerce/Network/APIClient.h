@@ -10,6 +10,8 @@
 @class Category;
 @class SubCategory;
 @class Product;
+@class Order;
+@class ProductOrder;
 
 typedef void (^SignupResultHandler)(NSString *);
 typedef void (^LoginResultHandler)(NSDictionary *, NSString *);
@@ -18,6 +20,10 @@ typedef void (^FetchSubCategoriesResultHandler) (NSMutableArray<SubCategory *> *
 typedef void (^FetchProductsResultHandler) (NSMutableArray<Product *> *, NSString *);
 typedef void (^ForgotPassewordResultHandler) (NSString *, NSString *);
 typedef void (^ResetPasswordResultHandler) (NSString *);
+
+typedef void (^OrderResultHandler) (NSMutableArray<NSString *> *, NSString *);
+typedef void (^FetchOrderHistoryResultHandler) (NSMutableArray<Order *> *, NSString *);
+typedef void (^FetchOrderStatusResultHandler) (NSInteger, NSString *);
 
 @interface APIClient : NSObject
 
@@ -48,5 +54,11 @@ typedef void (^ResetPasswordResultHandler) (NSString *);
 
 - (void)forgotPasswordWithPhone: (NSString *)phoneNumber
 			   completonHandler: (ForgotPassewordResultHandler)completion;
+
+
+- (void)makeOrderForProductOrders: (NSMutableArray<ProductOrder *> *)productOrders
+				completionHandler: (OrderResultHandler)completion;
+
+- (void)fetchOrderHistory: (FetchOrderHistoryResultHandler)completion;
 
 @end

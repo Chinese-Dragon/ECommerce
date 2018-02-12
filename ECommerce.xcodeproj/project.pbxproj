@@ -14,6 +14,9 @@
 		4D1DC66B202BB24D00F3DE9A /* AppUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC66A202BB24D00F3DE9A /* AppUserManager.m */; };
 		4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC671202BDF7000F3DE9A /* EndpointHelper.m */; };
 		4D1DC675202C156A00F3DE9A /* AccountVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1DC674202C156A00F3DE9A /* AccountVC.m */; };
+		4D2C536A20312E5800BD55CF /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C536920312E5800BD55CF /* Order.m */; };
+		4D2C536D203153D200BD55CF /* OrdersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C536C203153D200BD55CF /* OrdersVC.m */; };
+		4D2C5370203154D200BD55CF /* OrderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2C536F203154D200BD55CF /* OrderCell.m */; };
 		4D3E5DAA202CD77F00633292 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DA9202CD77F00633292 /* Category.m */; };
 		4D3E5DAD202CEF5400633292 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DAC202CEF5400633292 /* Product.m */; };
 		4D3E5DB0202CF22300633292 /* SubCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3E5DAF202CF22300633292 /* SubCategory.m */; };
@@ -58,6 +61,12 @@
 		4D1DC671202BDF7000F3DE9A /* EndpointHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EndpointHelper.m; sourceTree = "<group>"; };
 		4D1DC673202C156A00F3DE9A /* AccountVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountVC.h; sourceTree = "<group>"; };
 		4D1DC674202C156A00F3DE9A /* AccountVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountVC.m; sourceTree = "<group>"; };
+		4D2C536820312E5800BD55CF /* Order.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		4D2C536920312E5800BD55CF /* Order.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
+		4D2C536B203153D200BD55CF /* OrdersVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrdersVC.h; sourceTree = "<group>"; };
+		4D2C536C203153D200BD55CF /* OrdersVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrdersVC.m; sourceTree = "<group>"; };
+		4D2C536E203154D200BD55CF /* OrderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderCell.h; sourceTree = "<group>"; };
+		4D2C536F203154D200BD55CF /* OrderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderCell.m; sourceTree = "<group>"; };
 		4D3E5DA8202CD77F00633292 /* Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		4D3E5DA9202CD77F00633292 /* Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		4D3E5DAB202CEF5400633292 /* Product.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
@@ -143,6 +152,8 @@
 				4DAA6F91202E252B00A5566A /* CartVC.m */,
 				4D72E62F202F944C00D2F7C3 /* MyTabBarController.h */,
 				4D72E630202F944C00D2F7C3 /* MyTabBarController.m */,
+				4D2C536B203153D200BD55CF /* OrdersVC.h */,
+				4D2C536C203153D200BD55CF /* OrdersVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +196,8 @@
 				4D3E5DAF202CF22300633292 /* SubCategory.m */,
 				4DAA6F93202E39A400A5566A /* ProductOrder.h */,
 				4DAA6F94202E39A400A5566A /* ProductOrder.m */,
+				4D2C536820312E5800BD55CF /* Order.h */,
+				4D2C536920312E5800BD55CF /* Order.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -246,6 +259,8 @@
 				4D72E62E202F7E9300D2F7C3 /* ProductOrderCellDelegate.h */,
 				4DAA6F96202E5A9B00A5566A /* ProductOrderCell.h */,
 				4DAA6F97202E5A9B00A5566A /* ProductOrderCell.m */,
+				4D2C536E203154D200BD55CF /* OrderCell.h */,
+				4D2C536F203154D200BD55CF /* OrderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,6 +447,7 @@
 				4D3E5DB0202CF22300633292 /* SubCategory.m in Sources */,
 				4D4DC909202AAD3E0005DBA7 /* LoginVC.m in Sources */,
 				4D4DC90F202AAD3E0005DBA7 /* ECommerce.xcdatamodeld in Sources */,
+				4D2C536D203153D200BD55CF /* OrdersVC.m in Sources */,
 				4D72E631202F944C00D2F7C3 /* MyTabBarController.m in Sources */,
 				4D1DC672202BDF7000F3DE9A /* EndpointHelper.m in Sources */,
 				4D3E5DB6202D334700633292 /* ProductListVC.m in Sources */,
@@ -447,10 +463,12 @@
 				4D4DC917202AAD3E0005DBA7 /* main.m in Sources */,
 				4D3E5DB9202D335900633292 /* ProductDetailVC.m in Sources */,
 				4D4DC906202AAD3E0005DBA7 /* AppDelegate.m in Sources */,
+				4D2C536A20312E5800BD55CF /* Order.m in Sources */,
 				4D1DC675202C156A00F3DE9A /* AccountVC.m in Sources */,
 				4D1DC66B202BB24D00F3DE9A /* AppUserManager.m in Sources */,
 				4DAA6F98202E5A9B00A5566A /* ProductOrderCell.m in Sources */,
 				4DAA6F8F202E143100A5566A /* ResetPasswordVC.m in Sources */,
+				4D2C5370203154D200BD55CF /* OrderCell.m in Sources */,
 				4DAA6F92202E252B00A5566A /* CartVC.m in Sources */,
 				4D72E634202FF5E000D2F7C3 /* UIColor+Style.m in Sources */,
 				4DB3E416202CC7DF00EE02F6 /* CategoryVC.m in Sources */,

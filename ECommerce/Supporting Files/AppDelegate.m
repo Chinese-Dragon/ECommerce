@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "AppUserManager.h"
+#import <PayPalMobile.h>
 
 @interface AppDelegate ()
 
@@ -20,6 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 	IQKeyboardManager.sharedManager.enable = YES;
 	IQKeyboardManager.sharedManager.shouldResignOnTouchOutside = YES;
+	
+	// setup paypal SDK
+	[PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction:@"CLIENT_ID_PRODUCTION",
+		PayPalEnvironmentSandbox: @"CLIENT_ID_SANDBOX"}];
 	
 	[self findEntryPoint];
 	
