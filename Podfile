@@ -15,7 +15,7 @@ target 'ECommerce' do
   pod 'JVFloatLabeledTextField'
   pod 'PKYStepper', '0.0.1'
   pod 'PayPal-iOS-SDK'
-  
+  pod 'FBSDKLoginKit'
   # Pods for ECommerce
 
 end

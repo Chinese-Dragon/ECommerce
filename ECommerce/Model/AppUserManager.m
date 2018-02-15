@@ -71,6 +71,9 @@ NSString *apiKey, *userName, *userId, *userEmail, *phone;
 	
 	// remove userdefault value
 	[NSUserDefaults.standardUserDefaults removeObjectForKey:userDefaultKey];
+	
+	// clean up the productorder Dict
+	[self.productOrdersDict removeAllObjects];
 }
 
 // getters for iVars

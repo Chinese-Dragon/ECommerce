@@ -14,8 +14,18 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
   - CarbonKit (2.2.2)
   - CardIO (5.4.1)
+  - FBSDKCoreKit (4.29.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.29.0):
+    - FBSDKCoreKit
   - HexColors (4.0.0)
   - IQKeyboardManager (5.0.7)
   - JSONModel (1.7.0)
@@ -39,6 +49,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - CarbonKit
+  - FBSDKLoginKit
   - IQKeyboardManager
   - JSONModel
   - JVFloatLabeledTextField
@@ -50,8 +61,11 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CarbonKit: 0dec4738fa489b4c043a5f850c27fd0dbefb57cc
   CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
+  FBSDKCoreKit: 6f139173dc63a1deaff4430a55f2fe5bb222d2af
+  FBSDKLoginKit: 56a057ca6822535ea0faa25f57a7c41edb697fd4
   HexColors: 5f95843ef89aff6a72e1fd3a8ebabf205cc43379
   IQKeyboardManager: 0bfa4607d39924116b5c0c8b55b5d789288b5cba
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
@@ -63,6 +77,6 @@ SPEC CHECKSUMS:
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: e59b36b81891d9217fef69cee66666539ab0e89d
+PODFILE CHECKSUM: fa16d12270220e71d374b6fb9f92b398ca210c82
 
 COCOAPODS: 1.3.1

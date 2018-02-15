@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "AppUserManager.h"
 #import <PayPalMobile.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
 @interface AppDelegate ()
 
@@ -26,9 +28,25 @@
 	[PayPalMobile initializeWithClientIdsForEnvironments:@{PayPalEnvironmentProduction:@"CLIENT_ID_PRODUCTION",
 		PayPalEnvironmentSandbox: @"CLIENT_ID_SANDBOX"}];
 	
+	[[FBSDKApplicationDelegate sharedInstance] application:application
+							 didFinishLaunchingWithOptions:launchOptions];
+	
 	[self findEntryPoint];
 	
 	return YES;
+}
+
+- (BOOL)application:(UIApplication *)application
+			openURL:(NSURL *)url
+			options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+	
+	BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
+																  openURL:url
+														sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+															   annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+					];
+	// Add any custom logic here.
+	return handled;
 }
 
 - (void)findEntryPoint {

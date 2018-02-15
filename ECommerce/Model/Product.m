@@ -24,7 +24,7 @@
 }
 
 - (void)setPrice:(NSNumber *)price {
-	float usdValue = [price floatValue] * 0.16;
+	float usdValue = [price floatValue] * 0.016;
 	_price = [NSNumber numberWithFloat:usdValue];
 }
 

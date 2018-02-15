@@ -13,11 +13,14 @@
 #import "APIClient.h"
 #import "AppUserManager.h"
 #import <JVFloatLabeledTextField/JVFloatLabeledTextField.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
 
-@interface LoginVC () <UITextFieldDelegate>
+@interface LoginVC () <UITextFieldDelegate, FBSDKLoginButtonDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *loginButton;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *phoneTextfield;
 @property (weak, nonatomic) IBOutlet JVFloatLabeledTextField *passwordTextfield;
+@property (weak, nonatomic) IBOutlet FBSDKLoginButton *fbLoginButton;
 
 @property (strong, nonatomic) NSString *phone;
 @property (strong, nonatomic) NSString *password;
@@ -28,6 +31,8 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	self.fbLoginButton.delegate = self;
+	self.fbLoginButton.readPermissions = @[@"public_profile"];
 }
 
 - (IBAction)loginAction:(UIButton *)sender {
@@ -94,6 +99,35 @@
 	}
 	
 	return YES;
+}
+
+- (void)requestFBUserData {
+	if ([FBSDKAccessToken currentAccessToken] != nil) {
+		[[[FBSDKGraphRequest alloc] initWithGraphPath:@"me" parameters:nil]
+		 startWithCompletionHandler:^(FBSDKGraphRequestConnection *connection, id result, NSError *error) {
+			 if (!error) {
+				 NSLog(@"fetched user:%@", result);
+				 // get user id and name
+				 
+				 // make API call for web service
+				 
+				 
+			 }
+		 }];
+	}
+}
+
+- (void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+	if (error == nil) {
+		// request user data
+		[self requestFBUserData];
+	} else {
+		[self showErrorMessage:error.localizedDescription inViewController:self];
+	}
+}
+
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+	NSLog(@"Logged Out");
 }
 
 @end
